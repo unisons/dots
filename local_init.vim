@@ -19,7 +19,32 @@ if g:colors_name =~ 'solarized'
 elseif g:colors_name =~ 'molokai'
     let g:airline_theme='molokai'
 endif
-" }
+"}
+
+" Setting for c.vim
+"  disable for nativation between panes(windows)
+let g:C_Ctrl_j = 'off'
 
 " Setting for source search {
-" }
+
+if executable(expand("~/.ctags/ctags"))
+    let g:gutentags_ctags_executable = '~/.ctags/ctags'
+endif
+
+" add more options to ctags, including line number
+"let g:gutentags_ctags_extra_args = [ '--fields=+niSz' ]
+let g:gutentags_ctags_extra_args = [ '--fields=+n' ]
+
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+let g:gutentags_project_root = ['.root']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" forbid gutentags adding gtags databases
+let g:gutentags_auto_add_gtags_cscope = 0
+
+"}
