@@ -1,8 +1,8 @@
 " Visual colorscheme
 Plug 'lifepillar/vim-solarized8'
+Plug 'rakr/vim-one'
 
 " Source Search
-Plug 'universal-ctags/ctags', { 'dir': '~/.ctags', 'do': '(./autogen.sh && ./configure && make) &> ~/.ctags/build.log'}
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'skywind3000/vim-preview'
@@ -17,7 +17,16 @@ Plug 'simeji/winresizer'
 " Marker
 Plug 'inkarkat/vim-mark'
 
+" Auto detect indentation
+Plug 'tpope/vim-sleuth'
+
 " TODO
-" Display auto reload
-" Fuzzy Search
-" Tmux true color support
+" [autocmd?] Display auto reload
+" [plugin] Fuzzy Search
+" [map] ,tab key binding
+" [plugin] Auto complete
+" [plugin] undo tree
+" [Plugin] NERDTree git support
+" [map] NERDTree keybinding F2/F3
+" [map] NERDTree pane navigation support
+" Mouse support
