@@ -20,13 +20,27 @@ Plug 'inkarkat/vim-mark'
 " Auto detect indentation
 Plug 'tpope/vim-sleuth'
 
+" Undo Tree
+Plug 'mbbill/undotree'
+
+" NERD Tree git support
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Buffer delete
+Plug 'moll/vim-bbye'
+
 " TODO
-" [autocmd?] Display auto reload
-" [plugin] Fuzzy Search
-" [map] ,tab key binding
+" [plugin] Fuzzy Search // rarely used so optional
 " [plugin] Auto complete
-" [plugin] undo tree
-" [Plugin] NERDTree git support
-" [map] NERDTree keybinding F2/F3
-" [map] NERDTree pane navigation support
+" [Visual] Background color for active/inactive pane
+"  - vim + tmux
+" Search without moving mouse
+"  - motion plugin?
+"  - Fuzzy search related??
+"
+"
 " Mouse support
+"  - consider again, w/o it, it seems good
+" Stop auto comment for single line comment
+"  - do it for filetype, refer to comments option
+"  - no suitable solution for this
