@@ -9,6 +9,7 @@ sh autogen.sh
 ./configure && make || exit -1
 sudo make install
 popd
+ln -s $PWD/tmux.conf ~/.tmux.conf
 
 # CTAGS UNIVERSAL
 git clone https://github.com/universal-ctags/ctags.git
