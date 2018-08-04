@@ -116,5 +116,8 @@ nnoremap <silent> <F3> :call <sid>myNERDTreeSwitch('NERDTreeFocus')<CR>
 " }
 
 " Setting for Tab/Buffer Control {
-nnoremap <silent> <leader><Tab> :Bdelete<CR>
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <silent> <leader><Tab> :Bdelete<CR>
+nmap <silent> <Tab> <Plug>AirlineSelectPrevTab<CR>
+nmap <silent> <S-Tab> <Plug>AirlineSelectNextTab<CR>
 " }
