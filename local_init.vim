@@ -98,11 +98,13 @@ endif
 let g:NERDTreeMapJumpNextSibling = 'J'
 let g:NERDTreeMapJumpPrevSibling = 'K'
 
-function s:myNERDTreeSwitch( cmd )
+function! s:myNERDTreeSwitch( cmd )
   let s:bufname = expand('%')
+  let s:bufpath = expand('%:p')
+  let s:bufexist = filereadable( s:bufpath )
   if s:bufname =~ 'NERD_tree'
-    execute 'normal \<C-w>\<C-p>'
-  elseif s:bufname == ''
+    execute 'wincmd p'
+  elseif empty( s:bufname ) == 1 || s:bufexist == 0 "emtpy or not exist
     execute 'NERDTreeFocus'
   else
     execute a:cmd
