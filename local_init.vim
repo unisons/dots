@@ -116,5 +116,5 @@ nnoremap <silent> <F3> :call <sid>myNERDTreeSwitch('NERDTreeFocus')<CR>
 " }
 
 " Setting for Tab/Buffer Control {
-nnoremap <silent> ,<Tab> :Bdelete<CR>
+nnoremap <silent> <leader><Tab> :Bdelete<CR>
 " }
