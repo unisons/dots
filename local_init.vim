@@ -112,7 +112,6 @@ function! s:myNERDTreeSwitch( cmd )
 endfunction
 nnoremap <silent> <F2> :call <sid>myNERDTreeSwitch('NERDTreeFind')<CR>
 nnoremap <silent> <F3> :call <sid>myNERDTreeSwitch('NERDTreeFocus')<CR>
-
 " }
 
 " Setting for Tab/Buffer Control {
@@ -120,4 +119,17 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <silent> <leader><Tab> :Bdelete<CR>
 nmap <silent> <Tab> <Plug>AirlineSelectPrevTab<CR>
 nmap <silent> <S-Tab> <Plug>AirlineSelectNextTab<CR>
+" }
+
+" Setting for deoplete {
+let g:UltiSnipsExpandTrigger="<c-i>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" }
+
+" Setting for windresizer {
+let g:winresizer_start_key="<C-w>e"
 " }

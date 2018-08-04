@@ -33,6 +33,16 @@ Plug 'moll/vim-bbye'
 Plug 'blueyed/vim-diminactive'
 let g:diminactive_enable_focus = 1
 
+" Auto complete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 " TODO
 " [plugin] Fuzzy Search // rarely used so optional
 " [plugin] Auto complete
