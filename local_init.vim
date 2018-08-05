@@ -1,4 +1,6 @@
+"----------------------------------------------------
 " Setting for visual {
+"----------------------------------------------------
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -48,7 +50,9 @@ highlight Conceal ctermfg=243 guifg=#657b83
 
 "}
 
+"----------------------------------------------------
 " Setting for autoread {
+"----------------------------------------------------
 " Triger `autoread` when files changes on disk
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
 " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
@@ -60,31 +64,36 @@ autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 "}
 
-" Setting for c.vim
-"  disable for nativation between panes(windows)
+"----------------------------------------------------
+" Setting for Navigation {
+"----------------------------------------------------
+" c.vim : disable for nativation between panes(windows)
 let g:C_Ctrl_j = 'off'
 
-" Setting for source search {
+" NERDTree : Disalbe Ctrl + j/k for pane navigation
+let g:NERDTreeMapJumpNextSibling = 'J'
+let g:NERDTreeMapJumpPrevSibling = 'K'
+" }
 
+"----------------------------------------------------
+" Setting for source search {
+"----------------------------------------------------
 " add more options to ctags, including line number
 "let g:gutentags_ctags_extra_args = [ '--fields=+niSz' ]
 let g:gutentags_ctags_extra_args = [ '--fields=+n' ]
-
 " enable gtags module
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
-
 " config project root markers.
 let g:gutentags_project_root = ['.root']
-
 " generate datebases in my cache directory, prevent gtags files polluting my project
 let g:gutentags_cache_dir = expand('~/.cache/tags')
-
 " forbid gutentags adding gtags databases
 let g:gutentags_auto_add_gtags_cscope = 0
-
 "}
 
+"----------------------------------------------------
 " Setting for undo tree {
+"----------------------------------------------------
 if has("persistent_undo")
   set undodir=~/.undodir/
   set undofile
@@ -92,12 +101,9 @@ if has("persistent_undo")
 endif
 " }
 
+"----------------------------------------------------
 " Setting for NERD tree {
-
-" Disalbe Ctrl + j/k for pane navigation
-let g:NERDTreeMapJumpNextSibling = 'J'
-let g:NERDTreeMapJumpPrevSibling = 'K'
-
+"----------------------------------------------------
 function! s:myNERDTreeSwitch( cmd )
   let s:bufname = expand('%')
   let s:bufpath = expand('%:p')
@@ -114,14 +120,18 @@ nnoremap <silent> <F2> :call <sid>myNERDTreeSwitch('NERDTreeFind')<CR>
 nnoremap <silent> <F3> :call <sid>myNERDTreeSwitch('NERDTreeFocus')<CR>
 " }
 
+"----------------------------------------------------
 " Setting for Tab/Buffer Control {
+"----------------------------------------------------
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <silent> <leader><Tab> :Bdelete<CR>
 nmap <silent> <Tab> <Plug>AirlineSelectNextTab<CR>
 nmap <silent> <S-Tab> <Plug>AirlineSelectPrevTab<CR>
 " }
 
+"----------------------------------------------------
 " Setting for deoplete {
+"----------------------------------------------------
 let g:UltiSnipsExpandTrigger="<c-i>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -130,8 +140,37 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }
 
+"----------------------------------------------------
 " Setting for windresizer {
+"----------------------------------------------------
 let g:winresizer_start_key="<C-w>e"
 " }
 
+"----------------------------------------------------
+" Setting for search {
+"----------------------------------------------------
+nmap / <Plug>(incsearch-forward)
+nmap ? <Plug>(incsearch-backward)
+nmap g/ <Plug>(incsearch-stay)
+
+nmap <space>/ <Plug>(easymotion-sn)
+omap <space>/ <Plug>(easymotion-tn)
+
+nmap z? <Plug>(incsearch-fuzzy-?)
+nmap z/ <Plug>(incsearch-fuzzy-stay)
+
+nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+" }
+
+"----------------------------------------------------
+" Setting mouse
+"----------------------------------------------------
 set mouse=n
+
+"----------------------------------------------------
+" Setting for smooth/animated scroll
+"----------------------------------------------------
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*3/2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*3/2, 0, 4)<CR>

@@ -1,3 +1,5 @@
+Plug 'tpope/vim-sensible'
+
 " Visual colorscheme
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
@@ -43,12 +45,21 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+Plug 'terryma/vim-multiple-cursors'
+
+" Vim sugar for the UNIX shell commands that need it the most.
+Plug 'tpope/vim-eunuch'
+
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-repeat'
+
+Plug 'terryma/vim-smooth-scroll'
+
 " TODO
-" [plugin] Fuzzy Search // rarely used so optional
-" Search without moving mouse
-"  - motion plugin?
-"  - Fuzzy search related??
-"
 " Stop auto comment for single line comment
 "  - do it for filetype, refer to comments option
 "  - no suitable solution for this
