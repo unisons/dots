@@ -45,14 +45,10 @@ let g:deoplete#enable_at_startup = 1
 
 " TODO
 " [plugin] Fuzzy Search // rarely used so optional
-" [plugin] Auto complete
 " Search without moving mouse
 "  - motion plugin?
 "  - Fuzzy search related??
 "
-" Mouse support
-"  - consider again, w/o it, it seems good
-"  - ! tmux mouse
 " Stop auto comment for single line comment
 "  - do it for filetype, refer to comments option
 "  - no suitable solution for this

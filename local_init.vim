@@ -117,8 +117,8 @@ nnoremap <silent> <F3> :call <sid>myNERDTreeSwitch('NERDTreeFocus')<CR>
 " Setting for Tab/Buffer Control {
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <silent> <leader><Tab> :Bdelete<CR>
-nmap <silent> <Tab> <Plug>AirlineSelectPrevTab<CR>
-nmap <silent> <S-Tab> <Plug>AirlineSelectNextTab<CR>
+nmap <silent> <Tab> <Plug>AirlineSelectNextTab<CR>
+nmap <silent> <S-Tab> <Plug>AirlineSelectPrevTab<CR>
 " }
 
 " Setting for deoplete {
@@ -133,3 +133,5 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Setting for windresizer {
 let g:winresizer_start_key="<C-w>e"
 " }
+
+set mouse=n
