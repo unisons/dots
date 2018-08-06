@@ -7,16 +7,18 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-set background=dark
-colorscheme solarized8_high
-"colorscheme solarized8_flat
-"let g:solarized_termtrans = 1
-let g:solarized_visibility = 'high'
-
-"colorscheme one
-"let g:one_allow_italics = 1
-"set background=dark
-"colorscheme one
+if 1
+  set background=dark
+  colorscheme solarized8_high
+  "colorscheme solarized8_flat
+  "let g:solarized_termtrans = 1
+  let g:solarized_visibility = 'high'
+elseif 1
+  colorscheme one
+  let g:one_allow_italics = 1
+  set background=dark
+  colorscheme one
+endif
 
 if exists('g:colors_name')
   if g:colors_name == 'solarized8_flat'
