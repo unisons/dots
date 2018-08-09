@@ -59,6 +59,18 @@ Plug 'tpope/vim-repeat'
 
 Plug 'terryma/vim-smooth-scroll'
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+
 " TODO
 " Stop auto comment for single line comment
 "  - do it for filetype, refer to comments option

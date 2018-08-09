@@ -132,12 +132,34 @@ nmap <silent> <S-Tab> <Plug>AirlineSelectPrevTab<CR>
 "----------------------------------------------------
 " Setting for deoplete {
 "----------------------------------------------------
-let g:UltiSnipsExpandTrigger="<c-i>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><s-tab> pumvisible() ? "\<C-p>" : "\<TAB>"
+
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><S-TAB>
+ \ pumvisible() ? "\<C-p>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<S-TAB>"
+imap <expr><CR>
+ \ pumvisible() ? neosnippet#expandable() ?
+ \    "\<Plug>(neosnippet_expand)" : "\<C-Y>" : "\<CR>"
+
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+function g:Multiple_cursors_before()
+  call deoplete#custom#buffer_option('auto_complete', v:false)
+endfunction
+function g:Multiple_cursors_after()
+  call deoplete#custom#buffer_option('auto_complete', v:true)
+endfunction
 " }
 
 "----------------------------------------------------
@@ -174,3 +196,6 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*3/2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*3/2, 0, 4)<CR>
+
+set updatetime=200
+"set list lcs=tab:\|\ 
