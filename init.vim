@@ -67,9 +67,11 @@ if v:version >= 703
   Plug 'Shougo/vimshell.vim'
 endif
 
+if 0
 if v:version >= 704
   "" Snippets
-  Plug 'SirVer/ultisnips'
+"  Plug 'SirVer/ultisnips'
+endif
 endif
 
 Plug 'honza/vim-snippets'
