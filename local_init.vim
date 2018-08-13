@@ -44,10 +44,15 @@ if exists('g:colors_name')
   endif
 endif
 
+let g:indentLine_enabled = 0
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 let g:indentLine_char = '›│|⎸▏' " only first charactor has effect
 let g:indentLine_setColors = 0
+
+let g:indentguides_spacechar = '┆'
+let g:indentguides_tabchar = '›'
+
 highlight Conceal ctermfg=243 guifg=#657b83
 
 "}
@@ -99,6 +104,7 @@ let g:gutentags_auto_add_gtags_cscope = 0
 if has("persistent_undo")
   set undodir=~/.undodir/
   set undofile
+  let g:undotree_SetFocusWhenToggle = 1
   nnoremap <F5> :UndotreeToggle<cr>
 endif
 " }
@@ -134,7 +140,7 @@ nmap <silent> <S-Tab> <Plug>AirlineSelectPrevTab<CR>
 "----------------------------------------------------
 " Setting for deoplete {
 "----------------------------------------------------
-let g:UltiSnipsExpandTrigger="<c-i>"
+let g:UltiSnipsExpandTrigger="<c-y>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
@@ -176,3 +182,41 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*3/2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*3/2, 0, 4)<CR>
+
+let g:detectindent_preferred_expandtab = 1
+let g:detectindent_preferred_indent = 4
+let g:detectindent_preferred_when_mixed = 1
+let g:detectindent_max_lines_to_analyse = 1024
+
+"----------------------------------------------------
+" Setting for redraw/refresh
+"----------------------------------------------------
+let g:gitgutter_max_signs = 20000
+set updatetime=100 "for faster update
+
+"----------------------------------------------------
+" Setting for GUI
+"----------------------------------------------------
+if has("gui_running")
+  set guifont=D2Coding\ 10
+  set lines=50
+  set columns=200
+endif
+
+"----------------------------------------------------
+" Rearrange Remaps
+"----------------------------------------------------
+unmap <leader>b
+nnoremap <silent> <leader>bb :Buffers<CR>
+
+" Search related mapping
+nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
+nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)
+
+let g:syntastic_mode_map = { "mode": "active", "passive_filetypes": ["c", "cpp"] }
+
+let g:gutentags_define_advanced_commands = 1

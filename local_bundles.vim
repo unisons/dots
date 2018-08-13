@@ -1,5 +1,9 @@
 Plug 'tpope/vim-sensible'
 
+if !has('nvim')
+    Plug 'noahfrederick/vim-neovim-defaults'
+endif
+
 " Visual colorscheme
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
@@ -18,9 +22,11 @@ Plug 'simeji/winresizer'
 
 " Marker
 Plug 'inkarkat/vim-mark'
+Plug 'inkarkat/vim-ingo-library' " Dep of vim-mark
 
 " Auto detect indentation
-Plug 'tpope/vim-sleuth'
+"Plug 'tpope/vim-sleuth'
+Plug 'ciaranm/detectindent'
 
 " Undo Tree
 Plug 'mbbill/undotree'
@@ -30,6 +36,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Buffer delete
 Plug 'moll/vim-bbye'
+" Buffer manager
+Plug 'jlanzarotta/bufexplorer'
 
 " Dim inactive
 Plug 'blueyed/vim-diminactive'
@@ -50,16 +58,31 @@ Plug 'terryma/vim-multiple-cursors'
 " Vim sugar for the UNIX shell commands that need it the most.
 Plug 'tpope/vim-eunuch'
 
+" Code Format
 Plug 'editorconfig/editorconfig-vim'
 
+" Search
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-repeat'
+Plug 'haya14busa/vim-asterisk'
+let g:asterisk#keeppos = 1
 
 Plug 'terryma/vim-smooth-scroll'
+
+Plug 'thirtythreeforty/lessspace.vim' " remove trailing whitespace on editting line
+let g:lessspace_normal = 0
+
+Plug 'farmergreg/vim-lastplace' "intelligent repopen last position handling git commit message
+
+Plug 'thaerkh/vim-indentguides'
+
+"Plug 'junegunn/vim-easy-align' " TODO review this plugin
 
 " TODO
 " Stop auto comment for single line comment
 "  - do it for filetype, refer to comments option
 "  - no suitable solution for this
+"
+"  [plug] easy align
