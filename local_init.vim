@@ -200,10 +200,30 @@ set mouse=n
 "----------------------------------------------------
 " Setting for smooth/animated scroll
 "----------------------------------------------------
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*3/2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*3/2, 0, 4)<CR>
+"" Plug 'terryma/vim-smooth-scroll'
+"nnoremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+"nnoremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+"nnoremap <silent> <c-b> :call smooth_scroll#up(&scroll*3/2, 0, 4)<CR>
+"nnoremap <silent> <c-f> :call smooth_scroll#down(&scroll*3/2, 0, 4)<CR>
+
+"" Plug 'yuttie/comfortable-motion.vim'
+let g:comfortable_motion_friction = 400.0
+let g:comfortable_motion_air_drag = 0.0
+"unlet g:comfortable_motion_no_default_key_mappings
+let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
+"nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) / 2)<CR>
+"nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) / -2)<CR>
+"nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4.0)<CR>
+"nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4.0)<CR>
+nnoremap <silent> <C-d> :call comfortable_motion#flickDist( winheight(0) * 0.8 / 2)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flickDist( winheight(0) * 0.8 / -2)<CR>
+nnoremap <silent> <C-f> :call comfortable_motion#flickDist( winheight(0) * 0.8 )<CR>
+nnoremap <silent> <C-b> :call comfortable_motion#flickDist( winheight(0) * 0.8 * -1 )<CR>
+
+vnoremap <silent> <c-u> <c-u>zz
+vnoremap <silent> <c-d> <c-d>zz
+vnoremap <silent> <c-b> <c-b>zz
+vnoremap <silent> <c-f> <c-f>zz
 
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 4
@@ -242,3 +262,6 @@ map g# <Plug>(asterisk-gz#)
 let g:syntastic_mode_map = { "mode": "active", "passive_filetypes": ["c", "cpp"] }
 
 let g:gutentags_define_advanced_commands = 1
+
+set secure
+set exrc

@@ -59,6 +59,9 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Vim sugar for the UNIX shell commands that need it the most.
 Plug 'tpope/vim-eunuch'
+" Temp plugin :w !sudo tee % > /dev/null is not working
+Plug 'lambdalisue/suda.vim'
+cmap w!! w suda://%
 
 " Code Format
 Plug 'editorconfig/editorconfig-vim'
@@ -72,6 +75,8 @@ Plug 'haya14busa/vim-asterisk'
 let g:asterisk#keeppos = 1
 
 Plug 'terryma/vim-smooth-scroll'
+Plug 'unisons/comfortable-motion.vim', { 'branch': 'handling_continuous_scroll'}
+let g:comfortable_motion_no_default_key_mappings = 1
 
 Plug 'thirtythreeforty/lessspace.vim' " remove trailing whitespace on editting line
 let g:lessspace_normal = 0
