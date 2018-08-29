@@ -25,7 +25,7 @@ Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library' " Dep of vim-mark
 
 " Auto detect indentation
-"Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 Plug 'ciaranm/detectindent'
 
 " Undo Tree

@@ -44,14 +44,27 @@ if exists('g:colors_name')
   endif
 endif
 
+autocmd BufReadPost * :DetectIndent
+let g:sleuth_automatic = 0
+
 let g:indentLine_enabled = 0
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
-let g:indentLine_char = '›│|⎸▏' " only first charactor has effect
-let g:indentLine_setColors = 0
+let g:indentLine_char = '┆›┆│|⎸▏' " only first charactor has effect
+let g:indentLine_setColors = 1
+let g:indentLine_color_gui = '#073642'
+"LineNR guifg=#657b83 guibg=#073642
+let g:indentLine_color_term = 236
+let g:indentLine_bgcolor_term = 'NONE'
+let g:indentLine_bgcolor_gui = 'NONE'
+if g:indentLine_enabled == 1
+    set list lcs=tab:\|\ 
+    set list lcs=tab:\›\ 
+endif
 
 let g:indentguides_spacechar = '┆'
 let g:indentguides_tabchar = '›'
+let g:indentguides_conceal_color = 'ctermfg=236 guifg=#073642'
 
 highlight Conceal ctermfg=243 guifg=#657b83
 
