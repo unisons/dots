@@ -29,6 +29,8 @@ endif
 
 set cursorline
 
+"let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#tagbar#enabled = 0
 let g:airline_powerline_fonts = 1
 if exists('g:colors_name')
   if g:colors_name =~ 'solarized'
@@ -44,8 +46,8 @@ if exists('g:colors_name')
   endif
 endif
 
-autocmd BufReadPost * :DetectIndent
-let g:sleuth_automatic = 0
+"autocmd BufReadPost * :DetectIndent
+let g:sleuth_automatic = 1
 
 let g:indentLine_enabled = 0
 let g:indentLine_concealcursor = 'inc'
@@ -108,7 +110,8 @@ let g:gutentags_project_root = ['.root']
 " generate datebases in my cache directory, prevent gtags files polluting my project
 let g:gutentags_cache_dir = expand('~/.cache/tags')
 " forbid gutentags adding gtags databases
-let g:gutentags_auto_add_gtags_cscope = 0
+let g:gutentags_auto_add_gtags_cscope = 1
+let g:gutentags_ctags_exclude = []
 "}
 
 "----------------------------------------------------
@@ -228,10 +231,10 @@ let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decreas
 "nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) / -2)<CR>
 "nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4.0)<CR>
 "nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4.0)<CR>
-nnoremap <silent> <C-d> :call comfortable_motion#flickDist( winheight(0) * 0.8 / 2)<CR>
-nnoremap <silent> <C-u> :call comfortable_motion#flickDist( winheight(0) * 0.8 / -2)<CR>
-nnoremap <silent> <C-f> :call comfortable_motion#flickDist( winheight(0) * 0.8 )<CR>
-nnoremap <silent> <C-b> :call comfortable_motion#flickDist( winheight(0) * 0.8 * -1 )<CR>
+nnoremap <silent> <C-d> :call comfortable_motion#flickDist( winheight(0) * 0.9 / 2)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flickDist( winheight(0) * 0.9 / -2)<CR>
+nnoremap <silent> <C-f> :call comfortable_motion#flickDist( winheight(0) * 0.9 )<CR>
+nnoremap <silent> <C-b> :call comfortable_motion#flickDist( winheight(0) * 0.9 * -1 )<CR>
 
 vnoremap <silent> <c-u> <c-u>zz
 vnoremap <silent> <c-d> <c-d>zz
@@ -273,8 +276,16 @@ map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
 
 let g:syntastic_mode_map = { "mode": "active", "passive_filetypes": ["c", "cpp"] }
+let g:syntastic_auto_loc_list = 0 " do not auto popup of location buffer of errors. Use Errors
 
 let g:gutentags_define_advanced_commands = 1
 
 set secure
 set exrc
+
+" q never close last window
+" q! will close last window
+" q! --> close! -> q!
+cabbrev wq <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'write \| close' : 'wq')<CR>
+cabbrev q <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'close' : 'q')<CR>
+cabbrev close! q!

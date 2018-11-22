@@ -28,6 +28,10 @@ Plug 'inkarkat/vim-ingo-library' " Dep of vim-mark
 Plug 'tpope/vim-sleuth'
 Plug 'ciaranm/detectindent'
 
+" Draw Indent Guide lines
+Plug 'thaerkh/vim-indentguides'
+"Plug 'Yggdroot/indentLine'
+
 " Undo Tree
 Plug 'mbbill/undotree'
 
@@ -83,9 +87,10 @@ let g:lessspace_normal = 0
 
 Plug 'farmergreg/vim-lastplace' "intelligent repopen last position handling git commit message
 
-Plug 'thaerkh/vim-indentguides'
-
 "Plug 'junegunn/vim-easy-align' " TODO review this plugin
+
+" Groovy indentation
+Plug 'modille/groovy.vim'
 
 " TODO
 " Stop auto comment for single line comment
